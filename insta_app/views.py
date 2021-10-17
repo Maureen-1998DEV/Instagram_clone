@@ -4,16 +4,13 @@ from django.shortcuts import render
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http  import HttpResponse
 import datetime as dt
-from email import send_welcome_email
+from .email import welcome_email
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import ImageForm, SignupForm, CommentForm, EditForm
 from django.db import models
 from .models import Image,Profile
-# Create your views here.
-
 from django.contrib.auth import login, authenticate
-
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -42,7 +39,7 @@ def signup(request):
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return HttpResponse('Confirm email')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
@@ -145,3 +142,4 @@ def profiles(request,id):
     post=Image.objects.filter(user_id=id)
                        
     return render(request,'profiles_each.html',{"profile":profile,"post":post})
+

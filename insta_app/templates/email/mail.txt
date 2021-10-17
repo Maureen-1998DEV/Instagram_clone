@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to InstaGram,Where you see all the activities of your friends like pictures,vedios which you can like and comment about them.
