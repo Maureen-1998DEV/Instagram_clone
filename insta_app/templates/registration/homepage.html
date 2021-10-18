@@ -6,17 +6,15 @@
  <img src="https://media.giphy.com/media/uo6rcjwHSAFsQ/giphy.gif" alt="" height="100px">
 <div style="  padding-top: 100px;" class="container">
     <div class="row">
-        <div class="col-md-4 ">
+        <div class="col-md-6 ">
             <div class="lay">
                 
             </div>
-            <img src="/static/mypics/instaQR.jpg" alt="dong">
+            <img src="{% static 'images/insta.jpg' %}" alt="dong">
 
         </div>
-        <div class="col-md-4"> 
 
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="signup-fields">
                 <div class="card">
                     <div style="text-align:center;" class="card-header">
@@ -24,9 +22,9 @@
                     </div>
                     <div style="text-align:center;" class="card-body">
                             {% if user.profile.photo %}
-                            <img  src="https://briefbox.me/wp-content/themes/briefbox/assets/images/default-avatar.png" alt="profile" class="img-thumbnail rounded-circle">
+                            <img  src="{% static 'images/nopic.jpg' %}" alt="profile" class="img-thumbnail rounded-circle">
                             {% else %}
-                            <img  src="https://briefbox.me/wp-content/themes/briefbox/assets/images/default-avatar.png" alt="random" class="img-thumbnail rounded-circle">
+                            <img  src="{% static 'images/nopic.jpg' %} "alt="random" class="img-thumbnail rounded-circle">
                             {% endif %}
                     </div>
                     <div class="card-footer">
