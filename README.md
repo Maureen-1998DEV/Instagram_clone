@@ -1,5 +1,5 @@
 # Projects Name:
-##  MyGallery_App
+##  INSTAGRAM_CLONE
 
 ## Contributors
     - Maureen Ougo
