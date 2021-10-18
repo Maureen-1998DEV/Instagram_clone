@@ -4,44 +4,54 @@
 {{block.super}}
 
 <div style="  padding-top: 110px;" class="container">
-        
-        <div class="row">
-                        
-                <div class="col-md-6">
-                        {% for photos_item in photos %}
-                                <div class="card">
-                                        <div class="card-title">
-                                                {% if photos_item.profile.profile_pic %}
-                                                <section> <img style="border-radius: 50% ; padding: 0.15rem;  width: 45px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);" class=" img-circle"
-                                                src="{{ photos_item.profile.profile_pic.url}}" alt="" width="50px" height="50px"> <a href="/profiles/{{ photos_item.profile.user.id}}" style="color:black">{{ photos_item.profile.user.username}}</a> <img src="https://cdn.shopify.com/s/files/1/2080/4695/products/1495368559287_1024x1024.png?v=1532767427" alt="" height="20px"> </section> <br>
-                                                        {% else %}
-                                                        <img style="border-radius: 50% ; padding: 0.15rem;  width: 45px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);" class=" img-circle"
-                                                        src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt="" width="50px" height="50px""> <a href="/profiles/{{ photos_item.profile.user.id}}" style="color:black">{{ photos_item.profile.user.username}}</a></section> <br> 
+   <div class="row">
+        <div class="col-md-6">
+         {% for photos_item in photos %}
+                                
+        <div class="card">
+                <div class="card-title">
+                                                
+                                
+                        {% if photos_item.profile.profile_pic %}
+                                                
+                        <section> <img style="border-radius: 50% ; padding: 0.15rem;  width: 45px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);" class=" img-circle"
+                        src="{{ photos_item.profile.profile_pic.url}}" alt="" width="50px" height="50px"> <a href="/profiles/{{ photos_item.profile.user.id}}" style="color:black">{{ photos_item.profile.user.username}}</a> <img src="https://cdn.shopify.com/s/files/1/2080/4695/products/1495368559287_1024x1024.png?v=1532767427" alt="" height="20px"> </section> <br>
+                         {% else %}
+                                                        
+                         <img style="border-radius: 50% ; padding: 0.15rem;  width: 45px; background: linear-gradient(to right bottom, #d82c66, #c92e3b, #e15e43, #f3813f, #ffa63e);" class=" img-circle"
+                                                        
+                         src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt="" width="50px" height="50px"> <a href="/profiles/{{ photos_item.profile.user.id}}" style="color:black">{{ photos_item.profile.user.username}}</a></section> <br> 
                                                                         
-                                                        {% endif %}
-                                </div>
+                                                        
+                         {% endif %}
+                                
                                         
-                                        <p>{{ photos_item.image_caption | truncatechars:200 }}</p>
                                         
-                                        <p  href="#" style="text-align: center;"><img data-image-id="{{photos_item.id}}" data-toggle="modal" data-target="#{{photos_item.id}}" class="" src="{{photos_item.image.url}}" alt="pic"  height="534px" width="534px"></p>
+                         <p>{{ photos_item.image_caption | truncatechars:200 }}</p>
+                                        
+                                        
+                         <p  href="#" style="text-align: center;"><img data-image-id="{{photos_item.id}}" data-toggle="modal" data-target="#{{photos_item.id}}" class="" src="{{photos_item.image.url}}" alt="pic"  height="534px" width="534px"></p>
                                          
-                          
-                                        
-
-
-                                        <p style="font-size:40px"><i class="fa fa-heart-o" style="font-size:30px;"></i>        <i class="fa fa-comment-o" style="font-size:30px;"></i></p>
+                          <p style="font-size:40px"><i class="fa fa-heart-o" style="font-size:30px;"></i>        <i class="fa fa-comment-o" style="font-size:30px;"></i></p>
                                         
                                         
-                                        <small class="text-muted"> <a href="http://maps.google.com/?q={{ photos_item.image_location }}">{{ photos_item.image_location }}</a> </small>
-                                        <small style="font-family: 'Oregano', cursive;">Posted {{photos_item.posted_time|timesince}} ago</small>
+                        <small class="text-muted"> <a href="http://maps.google.com/?q={{ photos_item.image_location }}">{{ photos_item.image_location }}</a> </small>
+                        <small style="font-family: 'Oregano', cursive;">Posted {{photos_item.posted_time|timesince}} ago</small>
                                         <!--  -->
-                                        <h6 class="displaying comments on an image"><br><br>
+                        <h6 class="displaying comments on an image"><br><br>
                                                
-                                                {% for comment in photos_item.comments.all %}
-                                                <h6 class="comment-list__comment">
-                                                                <a class="user">
-                                                     <em>{{ comment.user.username }}</em>
-                                                  </a>
-                                                  <span class="text-muted">{{ comment.comment }}</span>
+                         {% for comment in photos_item.comments.all %}
+                                               
+                         <h6 class="comment-list__comment">
+                                                               
+                                <a class="user">
+                                <em>{{ comment.user.username }}</em>
+                                </a>
+                              <span class="text-muted">{{ comment.comment }}</span>
                                                 </h6>
-                                              {% endfor %}
+                </div>                        
+
+        </div>                                     
+                                             
+</div>
+{% endfor %}

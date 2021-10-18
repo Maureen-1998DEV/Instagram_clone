@@ -28,7 +28,7 @@ def signup(request):
             user.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your Instagram account.'
-            message = render_to_string('acc_active_email.html', {
+            message = render_to_string('acc_email.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid':urlsafe_base64_encode(force_bytes(user.pk)),
@@ -76,7 +76,7 @@ def index(request):
     # print(profiles)
     form = CommentForm()
 
-    return render(request, 'all-posts/index.html', {"date": date, "photos":photos, "profiles":profiles, "form":form})
+    return render(request, 'posts/index.html', {"date": date, "photos":photos, "profiles":profiles, "form":form})
 
 def new_image(request):
     current_user = request.user
@@ -92,7 +92,7 @@ def new_image(request):
 
     else:
         form = ImageForm()
-    return render(request, 'new_image.html', {"form": form})
+    return render(request, 'image.html', {"form": form})
 
 def profile(request):
     date = dt.date.today()
@@ -141,5 +141,5 @@ def profiles(request,id):
     profile = Profile.objects.get(user_id=id)
     post=Image.objects.filter(user_id=id)
                        
-    return render(request,'profiles_each.html',{"profile":profile,"post":post})
+    return render(request,'profiles.html',{"profile":profile,"post":post})
 

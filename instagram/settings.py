@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'insta_app.apps.InstaAppConfig',
     'bootstrap5',
     'tinymce',
-    'registration',
+    
+    
     
 ]
 
