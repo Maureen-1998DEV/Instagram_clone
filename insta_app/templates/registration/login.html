@@ -24,9 +24,11 @@
         </div>
         <div class="card-body">
 
-          <form  action="/accounts/login/" method="post">
+          <form  action="/profile/" method="post">
             {% csrf_token %}
-            {% bootstrap_form form%}
+            {% for field in form %}
+    {% bootstrap_field field %}
+{% endfor %}
 
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Login">

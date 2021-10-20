@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -13,7 +13,7 @@ urlpatterns=[
     url('^comment/(?P<image_id>\d+)', views.comment, name='comment'),
     url('^profiles/(\d+)',views.profiles,name='profiles'),
     url('^signup/$', views.signup, name='signup'),
-    url('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
+
 
 ]
 if settings.DEBUG:

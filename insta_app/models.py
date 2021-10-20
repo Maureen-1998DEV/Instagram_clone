@@ -1,9 +1,9 @@
+from cloudinary.models import CloudinaryField
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from tinymce.models import HTMLField
-from cloudinary.models import CloudinaryField
 # Create your models here.
 
 # class Profile
@@ -45,7 +45,7 @@ class Image(models.Model):
     image_caption = models.CharField(max_length=30)
     image_location = models.CharField(max_length=30,null=True)
     
-    profile = models.ImageField(Profile,on_delete=models.CASCADE, blank=True, null=True)
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True)
     posted_time = models.DateTimeField(auto_now_add=True,)
     likes = models.PositiveIntegerField(default=0)
@@ -64,7 +64,7 @@ class Image(models.Model):
 # class comments
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(Image, on_delete=models.CASCADE, related_name='comments')
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='comments')
     comment = models.CharField(max_length = 500)
     posted_on = models.DateTimeField(auto_now=True)
     
