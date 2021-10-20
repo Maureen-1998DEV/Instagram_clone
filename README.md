@@ -16,7 +16,7 @@ Instagram_clone is my second project in django that is similarliy as instagram w
 - Admin can upload images from a django dashboard
 
 ## View Live Site here
-View the complete site [here](https://ougo-gallery.herokuapp.com/)
+View the complete site [here](https://ougo-instagram.herokuapp.com/)
 
 ## Technologies Used
     - Python 3.8
